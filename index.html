@@ -68,25 +68,76 @@
             color: #444;
         }
 
+        .screens-description {
+            text-align: right;
+            font-size: 16px;
+            line-height: 1.8;
+            margin: 20px 0;
+            color: #444;
+        }
+
+        .screen-feature {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-right: 4px solid var(--primary-color);
+            margin-bottom: 15px;
+            border-radius: 0 5px 5px 0;
+        }
+
+        .screen-image {
+            width: 100%;
+            max-width: 800px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            margin: 20px auto;
+            display: block;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
         .padlet-container {
             margin-top: 30px;
             border-radius: 8px;
             overflow: hidden;
         }
 
-        h1,
-        h2 {
+        .navigation-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .nav-button {
+            padding: 12px 25px;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .nav-button:hover {
+            background-color: #5ca2a9;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        h1, h2, h3 {
             color: var(--primary-color);
         }
 
         @media (max-width: 600px) {
-
             .header,
             .content-section {
                 padding: 15px;
             }
 
-            .project-description {
+            .project-description,
+            .screens-description {
                 font-size: 16px;
             }
 
@@ -100,6 +151,16 @@
             
             .logo {
                 width: 120px;
+            }
+
+            .navigation-buttons {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .nav-button {
+                width: 100%;
+                text-align: center;
             }
         }
 
@@ -145,7 +206,38 @@
         </div>
     </div>
 
+    <!-- قسم التنقل -->
     <div class="content-section">
+        <h2>الانتقال السريع</h2>
+        <div class="navigation-buttons">
+            <a href="#screens-section" class="nav-button">انتقل إلى قسم الشاشات</a>
+            <a href="#video-section" class="nav-button">انتقل إلى مقطع الواقع الافتراضي</a>
+            <a href="#padlet-section" class="nav-button">انتقل إلى لوحة Padlet</a>
+        </div>
+    </div>
+
+    <!-- قسم الشاشات الجديد -->
+    <div class="content-section" id="screens-section">
+        <h2>الشاشات</h2>
+        <div class="screens-description">
+            <p>في مشروعنا صممنا شاشتين باستخدام Flutter:</p>
+            
+            <div class="screen-feature">
+                <h3>شاشة الممرضين</h3>
+                <p>وهي مسؤولة عن عرض حالات المرضى وعلاماتهم الحيوية وتصدر إنذاراً في حالة تردي حالة أي مريض</p>
+                <img src="nurse.png" alt="شاشة الممرضين" class="screen-image">
+                <p style="text-align: center; color: #666; margin-top: 5px;">شاشة الممرضين تعرض بيانات المرضى مع تنبيهات للقيم غير الطبيعية</p>
+            </div>
+            
+            <div class="screen-feature">
+                <h3>شاشة غرفة المريض</h3>
+                <p>حيث تعرض وبشكل مباشر علامات المريض الحيوية المستخرجة من الحساسات بعد تحليلها</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- قسم الفيديو -->
+    <div class="content-section" id="video-section">
         <h2>مقطع الواقع الافتراضي</h2>
         <video controls style="width:100%; border-radius: 10px;">
             <source src="document_5843760110987387950.mp4" type="video/mp4">
@@ -153,7 +245,8 @@
         </video>
     </div>
 
-    <div class="content-section">
+    <!-- قسم Padlet -->
+    <div class="content-section" id="padlet-section">
         <h2>لوحة Padlet التفاعلية</h2>
         <div class="padlet-container">
             <div class="padlet-embed" style="border:1px solid rgba(0,0,0,0.1);background:#F4F4F4">
