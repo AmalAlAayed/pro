@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="ar" dir="rtl" id="htmlElement">
 
 <head>
     <meta charset="UTF-8">
@@ -43,6 +43,7 @@
             box-shadow: var(--shadow);
             max-width: 900px;
             animation: fadeInDown 1s ease-out;
+            position: relative;
         }
 
         .logo-container {
@@ -185,8 +186,49 @@
             transition: var(--transition);
         }
 
-        @media (max-width: 600px) {
+        /* إضافة أسلوب زر اللغة */
+        .language-switcher {
+            position: absolute;
+            left: 20px;
+            top: 20px;
+            z-index: 1000;
+        }
+        
+        .language-btn {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: var(--transition);
+            margin: 0 5px;
+        }
+        
+        .language-btn:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-hover);
+        }
+        
+        /* إضافة لأسلوب اللغة الإنجليزية */
+        [dir="ltr"] {
+            font-family: 'Arial', sans-serif;
+        }
+        
+        [dir="ltr"] .project-description,
+        [dir="ltr"] .screens-description {
+            text-align: left;
+        }
+        
+        [dir="ltr"] .screen-feature {
+            border-right: none;
+            border-left: 4px solid var(--primary-color);
+            border-radius: 5px 0 0 5px;
+        }
 
+        @media (max-width: 600px) {
             .header,
             .content-section {
                 padding: 15px;
@@ -215,6 +257,11 @@
 
             .design-image-container {
                 min-width: 100%;
+            }
+
+            .language-switcher {
+                position: static;
+                margin-bottom: 15px;
             }
         }
 
@@ -260,83 +307,85 @@
 
 <body>
     <div class="header">
+        <div class="language-switcher">
+            <button class="language-btn" id="lang-ar">العربية</button>
+            <button class="language-btn" id="lang-en">English</button>
+        </div>
         <div class="logo-container">
             <img src="photo.png" alt="شعار مشروع الحصيرة الذكية - بصيرة" class="logo">
         </div>
-        <h1>الحصيرة الذكية لمراقبة صحة المرضى</h1>
+        <h1 id="main-heading">الحصيرة الذكية لمراقبة صحة المرضى</h1>
     </div>
 
     <div class="content-section">
         <div class="project-description">
-            <p>يقترح هذا المشروع حصيرة ذكية تعمل بحساسات من نوع شبكة براج الليفية، وذلك من أجل مراقبة فعّالة لصحة
+            <p id="project-desc">يقترح هذا المشروع حصيرة ذكية تعمل بحساسات من نوع شبكة براج الليفية، وذلك من أجل مراقبة فعّالة لصحة
                 المرضى. وتتميّز هذه الحساسات بحساسية عالية ومقاومة للتداخل الكهرومغناطيسي، مما يتيح تتبعًا دقيقًا وغير
                 تدخّلي لمعدل نبض القلب، ومعدل التنفس، ودرجة حرارة الجسم، وضغط الدم.</p>
         </div>
     </div>
 
     <div class="content-section">
-        <h2>الانتقال السريع</h2>
+        <h2 id="quick-nav">الانتقال السريع</h2>
         <div class="navigation-buttons">
-            <a href="#screens-section" class="nav-button">انتقل إلى قسم الشاشات</a>
-            <a href="#video-section" class="nav-button">انتقل إلى مقطع الواقع الافتراضي</a>
-            <a href="#design-section" class="nav-button">انتقل إلى قسم التصميم</a>
-            <a href="#padlet-section" class="nav-button">انتقل إلى لوحة التعليقات </a>
-            <a href="#contact-section" class="nav-button">انتقل إلى قسم التواصل</a>
+            <a href="#screens-section" class="nav-button" id="nav-screens">انتقل إلى قسم الشاشات</a>
+            <a href="#video-section" class="nav-button" id="nav-video">انتقل إلى مقطع الواقع الافتراضي</a>
+            <a href="#design-section" class="nav-button" id="nav-design">انتقل إلى قسم التصميم</a>
+            <a href="#padlet-section" class="nav-button" id="nav-padlet">انتقل إلى لوحة التعليقات </a>
+            <a href="#contact-section" class="nav-button" id="nav-contact">انتقل إلى قسم التواصل</a>
         </div>
     </div>
 
     <div class="content-section" id="design-section">
-        <h2>التصميم</h2>
-        <p class="screens-description">رحلة تصميم الحصيرة الذكية باستخدام أدوات هندسية متقدمة</p>
+        <h2 id="design-title">التصميم</h2>
+        <p class="screens-description" id="design-desc">رحلة تصميم الحصيرة الذكية باستخدام أدوات هندسية متقدمة</p>
         <div class="design-images">
             <div class="design-image-container">
                 <img src="design.png" alt="تصميم ثلاثي الأبعاد للحصيرة الذكية" class="design-image">
-                <p class="design-caption">تصميم متكامل للنظام </p>
+                <p class="design-caption" id="design-caption1">تصميم متكامل للنظام </p>
             </div>
             <div class="design-image-container">
                 <img src="bed.png" alt="نموذج سرير المستشفى مع الحصيرة الذكية" class="design-image">
-                <p class="design-caption"> تصميم ثلاثي الأبعاد للحصيرة الذكية</p>
+                <p class="design-caption" id="design-caption2"> تصميم ثلاثي الأبعاد للحصيرة الذكية</p>
             </div>
         </div>
     </div>
 
     <div class="content-section" id="screens-section">
-        <h2>الشاشات</h2>
+        <h2 id="screens-title">الشاشات</h2>
         <div class="screens-description">
-            <p>في مشروعنا صممنا شاشتين باستخدام Flutter:</p>
+            <p id="screens-intro">في مشروعنا صممنا شاشتين باستخدام Flutter:</p>
 
             <div class="screen-feature">
-                <h3>شاشة الممرضين</h3>
-                <p>وهي مسؤولة عن عرض حالات المرضى وعلاماتهم الحيوية وتصدر إنذاراً في حالة تردي حالة أي مريض</p>
+                <h3 id="nurse-screen-title">شاشة الممرضين</h3>
+                <p id="nurse-screen-desc">وهي مسؤولة عن عرض حالات المرضى وعلاماتهم الحيوية وتصدر إنذاراً في حالة تردي حالة أي مريض</p>
                 <img src="nurse.png" alt="شاشة الممرضين" class="screen-image">
-                <p style="text-align: center; color: #666; margin-top: 5px;">شاشة الممرضين تعرض بيانات المرضى مع تنبيهات
+                <p style="text-align: center; color: #666; margin-top: 5px;" id="nurse-screen-caption">شاشة الممرضين تعرض بيانات المرضى مع تنبيهات
                     للقيم غير الطبيعية</p>
             </div>
 
             <div class="screen-feature">
-                <h3>شاشة غرفة المريض</h3>
-                <p>حيث تعرض وبشكل مباشر علامات المريض الحيوية المستخرجة من الحساسات بعد تحليلها</p>
+                <h3 id="patient-screen-title">شاشة غرفة المريض</h3>
+                <p id="patient-screen-desc">حيث تعرض وبشكل مباشر علامات المريض الحيوية المستخرجة من الحساسات بعد تحليلها</p>
                 <video autoplay loop muted playsinline style="width:100%; border-radius: 10px; margin-top: 15px;">
                     <source src="BlackScreen_Normal.MP4" type="video/mp4">
                     المتصفح لا يدعم تشغيل الفيديو.
                 </video>
-                <p style="text-align: center; color: #666; margin-top: 5px;">عرض توضيحي لشاشة غرفة المريض</p>
+                <p style="text-align: center; color: #666; margin-top: 5px;" id="patient-screen-caption">عرض توضيحي لشاشة غرفة المريض</p>
             </div>
         </div>
     </div>
 
     <div class="content-section" id="video-section">
-        <h2>مقطع الواقع الافتراضي</h2>
+        <h2 id="vr-title">مقطع الواقع الافتراضي</h2>
         <video controls style="width:100%; border-radius: 10px;">
             <source src="document_5843760110987387950.mp4" type="video/mp4">
             المتصفح لا يدعم تشغيل الفيديو.
         </video>
     </div>
 
-
-
     <div class="content-section" id="padlet-section">
-        <h2> تعليقاتكم ومشاركاتكم</h2>
+        <h2 id="comments-title"> تعليقاتكم ومشاركاتكم</h2>
         <div class="padlet-container">
             <div class="padlet-embed" style="border:1px solid rgba(0,0,0,0.1);background:#F4F4F4">
                 <iframe src="https://padlet.com/embed/zj5pquzc3t72k7og" style="width:100%;height:800px;border:none;"
@@ -346,26 +395,25 @@
     </div>
 
     <div class="content-section" id="contact-section">
-        <h2>التواصل</h2>
+        <h2 id="contact-title">التواصل</h2>
         <div class="navigation-buttons">
-            <a href="https://www.linkedin.com/in/norah-alangari-79425523a" target="_blank" class="nav-button">نورة
+            <a href="https://www.linkedin.com/in/norah-alangari-79425523a" target="_blank" class="nav-button" id="contact-norah">نورة
                 العنقري</a>
-            <a href="https://www.linkedin.com/in/nourah-almajed-60468b2b7" target="_blank" class="nav-button">نورة
+            <a href="https://www.linkedin.com/in/nourah-almajed-60468b2b7" target="_blank" class="nav-button" id="contact-nourah">نورة
                 الماجد</a>
-            <a href="https://www.linkedin.com/in/ameerah-alharthi-414148324" target="_blank" class="nav-button">أميرة
+            <a href="https://www.linkedin.com/in/ameerah-alharthi-414148324" target="_blank" class="nav-button" id="contact-ameerah">أميرة
                 الحارثي</a>
-            <a href="https://www.linkedin.com/in/amal-alaayed-b6a89131b" target="_blank" class="nav-button">أمل
+            <a href="https://www.linkedin.com/in/amal-alaayed-b6a89131b" target="_blank" class="nav-button" id="contact-amal">أمل
                 العايد</a>
             <a href="https://www.linkedin.com/in/leen-khaled-4b08ab299?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
-                target="_blank" class="nav-button">لين العنزي</a>
+                target="_blank" class="nav-button" id="contact-leen">لين العنزي</a>
         </div>
         <div style="text-align: center; margin-top: 25px;">
             <img src="comu.jpg" alt="فريق العمل"
                 style="max-width: 350px; width: 100%; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.08);">
-            <p style="color: #5ca2a9; font-weight: bold; margin-top: 10px;">فريق العمل</p>
+            <p style="color: #5ca2a9; font-weight: bold; margin-top: 10px;" id="team-caption">فريق العمل</p>
         </div>
     </div>
-
 
     <script>
         // Smooth scroll with offset for fixed headers
@@ -389,7 +437,116 @@
                 }
             });
         });
+
+        // Language switcher functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Translation dictionary
+            const translations = {
+                'ar': {
+                    'title': 'الحصيرة الذكية لمراقبة المرضى | مشروع بصيرة',
+                    'main-heading': 'الحصيرة الذكية لمراقبة صحة المرضى',
+                    'project-desc': 'يقترح هذا المشروع حصيرة ذكية تعمل بحساسات من نوع شبكة براج الليفية، وذلك من أجل مراقبة فعّالة لصحة المرضى. وتتميّز هذه الحساسات بحساسية عالية ومقاومة للتداخل الكهرومغناطيسي، مما يتيح تتبعًا دقيقًا وغير تدخّلي لمعدل نبض القلب، ومعدل التنفس، ودرجة حرارة الجسم، وضغط الدم.',
+                    'quick-nav': 'الانتقال السريع',
+                    'nav-screens': 'انتقل إلى قسم الشاشات',
+                    'nav-video': 'انتقل إلى مقطع الواقع الافتراضي',
+                    'nav-design': 'انتقل إلى قسم التصميم',
+                    'nav-padlet': 'انتقل إلى لوحة التعليقات',
+                    'nav-contact': 'انتقل إلى قسم التواصل',
+                    'design-title': 'التصميم',
+                    'design-desc': 'رحلة تصميم الحصيرة الذكية باستخدام أدوات هندسية متقدمة',
+                    'design-caption1': 'تصميم متكامل للنظام',
+                    'design-caption2': 'تصميم ثلاثي الأبعاد للحصيرة الذكية',
+                    'screens-title': 'الشاشات',
+                    'screens-intro': 'في مشروعنا صممنا شاشتين باستخدام Flutter:',
+                    'nurse-screen-title': 'شاشة الممرضين',
+                    'nurse-screen-desc': 'وهي مسؤولة عن عرض حالات المرضى وعلاماتهم الحيوية وتصدر إنذاراً في حالة تردي حالة أي مريض',
+                    'nurse-screen-caption': 'شاشة الممرضين تعرض بيانات المرضى مع تنبيهات للقيم غير الطبيعية',
+                    'patient-screen-title': 'شاشة غرفة المريض',
+                    'patient-screen-desc': 'حيث تعرض وبشكل مباشر علامات المريض الحيوية المستخرجة من الحساسات بعد تحليلها',
+                    'patient-screen-caption': 'عرض توضيحي لشاشة غرفة المريض',
+                    'vr-title': 'مقطع الواقع الافتراضي',
+                    'comments-title': 'تعليقاتكم ومشاركاتكم',
+                    'contact-title': 'التواصل',
+                    'contact-norah': 'نورة العنقري',
+                    'contact-nourah': 'نورة الماجد',
+                    'contact-ameerah': 'أميرة الحارثي',
+                    'contact-amal': 'أمل العايد',
+                    'contact-leen': 'لين العنزي',
+                    'team-caption': 'فريق العمل'
+                },
+                'en': {
+                    'title': 'Smart Mat for Patient Monitoring | Basira Project',
+                    'main-heading': 'Smart Mat for Patient Health Monitoring',
+                    'project-desc': 'This project proposes a smart mat using fiber Bragg grating sensors for effective patient health monitoring. These sensors feature high sensitivity and electromagnetic interference resistance, enabling accurate and non-invasive tracking of heart rate, respiration rate, body temperature, and blood pressure.',
+                    'quick-nav': 'Quick Navigation',
+                    'nav-screens': 'Go to Screens Section',
+                    'nav-video': 'Go to VR Video',
+                    'nav-design': 'Go to Design Section',
+                    'nav-padlet': 'Go to Comments Board',
+                    'nav-contact': 'Go to Contact Section',
+                    'design-title': 'Design',
+                    'design-desc': 'Smart mat design journey using advanced engineering tools',
+                    'design-caption1': 'Complete system design',
+                    'design-caption2': '3D design of the smart mat',
+                    'screens-title': 'Screens',
+                    'screens-intro': 'In our project, we designed two screens using Flutter:',
+                    'nurse-screen-title': 'Nurses Screen',
+                    'nurse-screen-desc': 'Responsible for displaying patient status and vital signs, and issuing alerts if any patient condition deteriorates',
+                    'nurse-screen-caption': 'Nurses screen shows patient data with alerts for abnormal values',
+                    'patient-screen-title': 'Patient Room Screen',
+                    'patient-screen-desc': 'Displays the patient\'s vital signs extracted from the sensors after analysis',
+                    'patient-screen-caption': 'Demonstration of the patient room screen',
+                    'vr-title': 'Virtual Reality Video',
+                    'comments-title': 'Your Comments and Feedback',
+                    'contact-title': 'Contact Us',
+                    'contact-norah': 'Norah Alangari',
+                    'contact-nourah': 'Nourah Almajed',
+                    'contact-ameerah': 'Ameerah Alharthi',
+                    'contact-amal': 'Amal Alaayed',
+                    'contact-leen': 'Leen Alenzi',
+                    'team-caption': 'Our Team'
+                }
+            };
+
+            // Function to change language
+            function changeLanguage(lang) {
+                const htmlElement = document.getElementById('htmlElement');
+                
+                // Change direction and language attributes
+                if (lang === 'ar') {
+                    htmlElement.setAttribute('dir', 'rtl');
+                    htmlElement.setAttribute('lang', 'ar');
+                } else {
+                    htmlElement.setAttribute('dir', 'ltr');
+                    htmlElement.setAttribute('lang', 'en');
+                }
+                
+                // Update all translatable elements
+                for (const [key, value] of Object.entries(translations[lang])) {
+                    const element = document.getElementById(key);
+                    if (element) {
+                        if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+                            element.value = value;
+                        } else {
+                            element.textContent = value;
+                        }
+                    } else if (key === 'title') {
+                        document.title = value;
+                    }
+                }
+                
+                // Save language preference
+                localStorage.setItem('language', lang);
+            }
+
+            // Initialize with saved language or default to Arabic
+            const savedLang = localStorage.getItem('language') || 'ar';
+            changeLanguage(savedLang);
+
+            // Button events
+            document.getElementById('lang-ar').addEventListener('click', () => changeLanguage('ar'));
+            document.getElementById('lang-en').addEventListener('click', () => changeLanguage('en'));
+        });
     </script>
 </body>
-
 </html>
