@@ -7,12 +7,12 @@
     <title>الحصيرة الذكية لمراقبة المرضى | مشروع بصيرة</title>
     <meta name="description"
         content="مشروع الحصيرة الذكية لمراقبة المرضى باستخدام حساسات براج الليفية وتقنيات الواقع الافتراضي.">
-    
+
     <!-- Google Fonts for Arabic -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
-    
+
     <style>
         :root {
             --primary-color: #67b4bb;
@@ -46,8 +46,8 @@
             text-align: center;
             margin: 20px auto var(--section-spacing);
             padding: 40px 20px;
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
-                        url('https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+                url('https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
             background-attachment: fixed;
             background-position: center;
             background-repeat: no-repeat;
@@ -74,7 +74,7 @@
 
         .logo-container:hover {
             transform: scale(1.05);
-            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
         }
 
         .logo {
@@ -253,7 +253,7 @@
             right: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
             transition: 0.5s;
         }
 
@@ -267,14 +267,17 @@
             right: 100%;
         }
 
-        h1, h2, h3 {
+        h1,
+        h2,
+        h3 {
             color: var(--primary-color);
             transition: var(--transition);
             position: relative;
             display: inline-block;
         }
 
-        h1::after, h2::after {
+        h1::after,
+        h2::after {
             content: '';
             position: absolute;
             bottom: -5px;
@@ -285,7 +288,8 @@
             transition: width 0.5s ease;
         }
 
-        h1:hover::after, h2:hover::after {
+        h1:hover::after,
+        h2:hover::after {
             width: 100%;
         }
 
@@ -338,36 +342,36 @@
             body {
                 padding: 15px;
             }
-            
+
             .header {
                 background-attachment: scroll;
                 padding: 30px 15px;
                 margin: 10px auto 25px;
             }
-            
+
             .content-section {
                 padding: 30px;
                 margin: 30px auto;
             }
-            
+
             .project-description,
             .screens-description {
                 font-size: 16px;
             }
-            
+
             .logo {
                 width: 140px;
             }
-            
+
             .nav-button {
                 width: 100%;
                 padding: 12px 20px;
             }
-            
+
             .design-image-container {
                 min-width: 100%;
             }
-            
+
             .language-switcher {
                 position: static;
                 margin-bottom: 15px;
@@ -379,23 +383,23 @@
             .content-section {
                 padding: 20px;
             }
-            
+
             .header {
                 padding: 20px 10px;
             }
-            
+
             .logo-container {
                 padding: 15px;
             }
-            
+
             .logo {
                 width: 120px;
             }
-            
+
             h1 {
                 font-size: 24px;
             }
-            
+
             h2 {
                 font-size: 20px;
             }
@@ -407,6 +411,7 @@
                 opacity: 0;
                 transform: translateY(-30px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -418,6 +423,7 @@
                 opacity: 0;
                 transform: translateY(30px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -428,9 +434,11 @@
             0% {
                 background-color: var(--white);
             }
+
             20% {
                 background-color: rgba(103, 180, 187, 0.2);
             }
+
             100% {
                 background-color: var(--white);
             }
@@ -438,9 +446,17 @@
 
         /* Floating Animation for Logo */
         @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
-            100% { transform: translateY(0px); }
+            0% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+
+            100% {
+                transform: translateY(0px);
+            }
         }
 
         .logo-container {
@@ -449,9 +465,17 @@
 
         /* Pulse Animation for Important Elements */
         @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.03); }
-            100% { transform: scale(1); }
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.03);
+            }
+
+            100% {
+                transform: scale(1);
+            }
         }
 
         .nav-button {
@@ -478,6 +502,7 @@
                 transform: translateY(50px);
                 opacity: 0;
             }
+
             100% {
                 transform: translateY(0);
                 opacity: 1;
@@ -510,9 +535,9 @@
     <div class="content-section reveal fade-bottom">
         <h2 id="quick-nav">الانتقال السريع</h2>
         <div class="navigation-buttons">
+            <a href="#design-section" class="nav-button" id="nav-design">انتقل إلى قسم التصميم</a>
             <a href="#screens-section" class="nav-button" id="nav-screens">انتقل إلى قسم الشاشات</a>
             <a href="#video-section" class="nav-button" id="nav-video">انتقل إلى مقطع الواقع الافتراضي</a>
-            <a href="#design-section" class="nav-button" id="nav-design">انتقل إلى قسم التصميم</a>
             <a href="#padlet-section" class="nav-button" id="nav-padlet">انتقل إلى لوحة التعليقات </a>
             <a href="#contact-section" class="nav-button" id="nav-contact">انتقل إلى قسم التواصل</a>
         </div>
@@ -564,6 +589,8 @@
 
     <div class="content-section reveal fade-bottom" id="video-section">
         <h2 id="vr-title">مقطع الواقع الافتراضي</h2>
+        <p class="screens-description">قمنا بجمع مكونات المشروع من شاشات(شاشة المريض والممرضين) والتصميم ثلاثي الأبعاد
+            للحصيرة الذكية لإنشاء بيئة متكاملة وتجربة فريدة للمستخدم. </p>
         <video controls style="width:100%; border-radius: 10px;">
             <source src="document_5843760110987387950.mp4" type="video/mp4">
             المتصفح لا يدعم تشغيل الفيديو.
@@ -736,16 +763,16 @@
             // Button events
             document.getElementById('lang-ar').addEventListener('click', () => changeLanguage('ar'));
             document.getElementById('lang-en').addEventListener('click', () => changeLanguage('en'));
-            
+
             // Scroll reveal animation
             function reveal() {
                 const reveals = document.querySelectorAll('.reveal');
-                
+
                 for (let i = 0; i < reveals.length; i++) {
                     const windowHeight = window.innerHeight;
                     const elementTop = reveals[i].getBoundingClientRect().top;
                     const elementVisible = 150;
-                    
+
                     if (elementTop < windowHeight - elementVisible) {
                         reveals[i].classList.add('active');
                     } else {
@@ -753,10 +780,11 @@
                     }
                 }
             }
-            
+
             window.addEventListener('scroll', reveal);
             reveal(); // Initialize
         });
     </script>
 </body>
+
 </html>
