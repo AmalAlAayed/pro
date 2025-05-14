@@ -113,6 +113,34 @@
             transition: var(--transition);
         }
 
+        .design-images {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .design-image-container {
+            flex: 1;
+            min-width: 250px;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        .design-image {
+            width: 100%;
+            border-radius: 8px;
+            border: 1px solid var(--gray-medium);
+            box-shadow: var(--shadow);
+        }
+
+        .design-caption {
+            margin-top: 10px;
+            font-weight: bold;
+            color: var(--primary-dark);
+        }
+
         .padlet-container {
             margin-top: 30px;
             border-radius: 8px;
@@ -158,6 +186,7 @@
         }
 
         @media (max-width: 600px) {
+
             .header,
             .content-section {
                 padding: 15px;
@@ -182,6 +211,10 @@
 
             .nav-button {
                 width: 100%;
+            }
+
+            .design-image-container {
+                min-width: 100%;
             }
         }
 
@@ -213,9 +246,11 @@
             0% {
                 background-color: var(--white);
             }
+
             20% {
                 background-color: rgba(103, 180, 187, 0.1);
             }
+
             100% {
                 background-color: var(--white);
             }
@@ -239,7 +274,6 @@
         </div>
     </div>
 
-    <!-- قسم التنقل -->
     <div class="content-section">
         <h2>الانتقال السريع</h2>
         <div class="navigation-buttons">
@@ -251,7 +285,6 @@
         </div>
     </div>
 
-    <!-- قسم الشاشات -->
     <div class="content-section" id="screens-section">
         <h2>الشاشات</h2>
         <div class="screens-description">
@@ -277,7 +310,6 @@
         </div>
     </div>
 
-    <!-- قسم الفيديو -->
     <div class="content-section" id="video-section">
         <h2>مقطع الواقع الافتراضي</h2>
         <video controls style="width:100%; border-radius: 10px;">
@@ -286,14 +318,18 @@
         </video>
     </div>
 
-    <!-- قسم التصميم -->
     <div class="content-section" id="design-section">
         <h2>التصميم</h2>
         <p class="screens-description">رحلة تصميم الحصيرة الذكية باستخدام أدوات هندسية متقدمة</p>
-        <img src="32950471-6A4C-471F-B4AF-1D2E4B299588.jpeg" alt="تصميم الحصيرة الذكية" class="screen-image">
+
+        <div class="design-images">
+            <div class="design-image-container">
+                <img src="design.png" alt="تصميم ثلاثي الأبعاد للحصيرة الذكية" class="design-image">
+                <p class="design-caption">تصميم ثلاثي الأبعاد للحصيرة الذكية</p>
+            </div>
+        </div>
     </div>
 
-    <!-- قسم Padlet -->
     <div class="content-section" id="padlet-section">
         <h2>لوحة Padlet التفاعلية</h2>
         <div class="padlet-container">
@@ -304,11 +340,10 @@
         </div>
     </div>
 
-    <!-- قسم التواصل -->
     <div class="content-section" id="contact-section">
         <h2>التواصل</h2>
         <div class="navigation-buttons">
-            <a href="https://www.linkedin.com/in/norah-alangari-79425523a" target="_blank" class="nav-button">نوراة
+            <a href="https://www.linkedin.com/in/norah-alangari-79425523a" target="_blank" class="nav-button">نورة
                 العنقري</a>
             <a href="https://www.linkedin.com/in/nourah-almajed-60468b2b7" target="_blank" class="nav-button">نورة
                 الماجد</a>
@@ -316,6 +351,8 @@
                 الحارثي</a>
             <a href="https://www.linkedin.com/in/amal-alaayed-b6a89131b" target="_blank" class="nav-button">أمل
                 العايد</a>
+            <a href="https://www.linkedin.com/in/leen-khaled-4b08ab299?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+                target="_blank" class="nav-button">لين العنزي</a>
         </div>
     </div>
 
@@ -324,16 +361,16 @@
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                
+
                 const targetId = this.getAttribute('href');
                 const targetElement = document.querySelector(targetId);
-                
+
                 if (targetElement) {
                     window.scrollTo({
                         top: targetElement.offsetTop - 20,
                         behavior: 'smooth'
                     });
-                    
+
                     // Add highlight animation
                     targetElement.style.animation = 'none';
                     void targetElement.offsetWidth; // Trigger reflow
