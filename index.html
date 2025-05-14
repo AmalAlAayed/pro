@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,6 +12,10 @@
             --white: #fff;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             font-family: 'Arial', sans-serif;
             line-height: 1.6;
@@ -20,7 +23,6 @@
             padding: 0;
             background-color: var(--primary-color);
             color: var(--text-color);
-            scroll-behavior: smooth;
         }
 
         .header {
@@ -149,10 +151,9 @@
             h1 {
                 font-size: 22px;
             }
-
-            h2 {
+h2 {
                 font-size: 20px;
-}
+            }
 
             .logo {
                 width: 120px;
@@ -188,7 +189,6 @@
         }
     </style>
 </head>
-
 <body>
     <div class="header">
         <div class="logo-container">
@@ -229,12 +229,10 @@
             <div class="screen-feature">
                 <h3>شاشة غرفة المريض</h3>
                 <p>حيث تعرض وبشكل مباشر علامات المريض الحيوية المستخرجة من الحساسات بعد تحليلها</p>
-                
                 <video autoplay loop muted playsinline style="width:100%; border-radius: 10px; margin-top: 15px;">
                     <source src="BlackScreen_Normal.MP4" type="video/mp4">
                     المتصفح لا يدعم تشغيل الفيديو.
                 </video>
-                
                 <p style="text-align: center; color: #666; margin-top: 5px;">عرض توضيحي لشاشة غرفة المريض</p>
             </div>
         </div>
@@ -260,5 +258,4 @@
         </div>
     </div>
 </body>
-
 </html>
