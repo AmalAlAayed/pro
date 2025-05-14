@@ -10,8 +10,19 @@
     <style>
         :root {
             --primary-color: #67b4bb;
+            --primary-dark: #5ca2a9;
             --text-color: #333;
             --white: #fff;
+            --gray-light: #f8f9fa;
+            --gray-medium: #ddd;
+            --gray-dark: #666;
+            --shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            --shadow-hover: 0 4px 8px rgba(0, 0, 0, 0.2);
+            --transition: all 0.4s cubic-bezier(0.65, 0, 0.35, 1);
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
@@ -21,7 +32,6 @@
             padding: 0;
             background-color: var(--primary-color);
             color: var(--text-color);
-            scroll-behavior: smooth;
         }
 
         .header {
@@ -30,7 +40,7 @@
             padding: 20px;
             background-color: var(--white);
             border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            box-shadow: var(--shadow);
             max-width: 900px;
             animation: fadeInDown 1s ease-out;
         }
@@ -58,8 +68,13 @@
             background: var(--white);
             padding: 30px;
             border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            box-shadow: var(--shadow);
             animation: fadeInUp 1s ease-out;
+            transition: var(--transition);
+        }
+
+        .content-section:target {
+            animation: highlightSection 2s ease-out;
         }
 
         .project-description {
@@ -79,27 +94,30 @@
         }
 
         .screen-feature {
-            background-color: #f8f9fa;
+            background-color: var(--gray-light);
             padding: 15px;
             border-right: 4px solid var(--primary-color);
             margin-bottom: 15px;
             border-radius: 0 5px 5px 0;
+            transition: var(--transition);
         }
 
         .screen-image {
             width: 100%;
             max-width: 800px;
-            border: 1px solid #ddd;
+            border: 1px solid var(--gray-medium);
             border-radius: 8px;
             margin: 20px auto;
             display: block;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
         }
 
         .padlet-container {
             margin-top: 30px;
             border-radius: 8px;
             overflow: hidden;
+            transition: var(--transition);
         }
 
         .navigation-buttons {
@@ -118,7 +136,7 @@
             border-radius: 5px;
             font-size: 16px;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: var(--transition);
             text-decoration: none;
             display: inline-block;
             width: 80%;
@@ -127,19 +145,19 @@
         }
 
         .nav-button:hover {
-            background-color: #5ca2a9;
+            background-color: var(--primary-dark);
             transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            box-shadow: var(--shadow-hover);
         }
 
         h1,
         h2,
         h3 {
             color: var(--primary-color);
+            transition: var(--transition);
         }
 
         @media (max-width: 600px) {
-
             .header,
             .content-section {
                 padding: 15px;
@@ -190,6 +208,18 @@
                 transform: translateY(0);
             }
         }
+
+        @keyframes highlightSection {
+            0% {
+                background-color: var(--white);
+            }
+            20% {
+                background-color: rgba(103, 180, 187, 0.1);
+            }
+            100% {
+                background-color: var(--white);
+            }
+        }
     </style>
 </head>
 
@@ -215,8 +245,8 @@
         <div class="navigation-buttons">
             <a href="#screens-section" class="nav-button">انتقل إلى قسم الشاشات</a>
             <a href="#video-section" class="nav-button">انتقل إلى مقطع الواقع الافتراضي</a>
-            <a href="#padlet-section" class="nav-button">انتقل إلى لوحة Padlet</a>
             <a href="#design-section" class="nav-button">انتقل إلى قسم التصميم</a>
+            <a href="#padlet-section" class="nav-button">انتقل إلى لوحة Padlet</a>
             <a href="#contact-section" class="nav-button">انتقل إلى قسم التواصل</a>
         </div>
     </div>
@@ -256,6 +286,13 @@
         </video>
     </div>
 
+    <!-- قسم التصميم -->
+    <div class="content-section" id="design-section">
+        <h2>التصميم</h2>
+        <p class="screens-description">رحلة تصميم الحصيرة الذكية باستخدام أدوات هندسية متقدمة</p>
+        <img src="32950471-6A4C-471F-B4AF-1D2E4B299588.jpeg" alt="تصميم الحصيرة الذكية" class="screen-image">
+    </div>
+
     <!-- قسم Padlet -->
     <div class="content-section" id="padlet-section">
         <h2>لوحة Padlet التفاعلية</h2>
@@ -265,13 +302,6 @@
                     loading="lazy"></iframe>
             </div>
         </div>
-    </div>
-
-    <!-- قسم التصميم -->
-    <div class="content-section" id="design-section">
-        <h2>التصميم</h2>
-        <p class="screens-description">رحلة تصميم الحصيرة الذكية باستخدام أدوات هندسية متقدمة</p>
-        <img src="32950471-6A4C-471F-B4AF-1D2E4B299588.jpeg" alt="تصميم الحصيرة الذكية" class="screen-image">
     </div>
 
     <!-- قسم التواصل -->
@@ -288,6 +318,30 @@
                 العايد</a>
         </div>
     </div>
+
+    <script>
+        // Smooth scroll with offset for fixed headers
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 20,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Add highlight animation
+                    targetElement.style.animation = 'none';
+                    void targetElement.offsetWidth; // Trigger reflow
+                    targetElement.style.animation = 'highlightSection 2s ease-out';
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>
